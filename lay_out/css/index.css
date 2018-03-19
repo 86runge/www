@@ -1,0 +1,109 @@
+#header {
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    box-shadow: 0 0 10px 10px #999;
+}
+
+#header .btn-group {
+    margin-left: 50px;
+    margin-top: 12px;
+}
+
+.pseudo:after {
+    display: block;
+    content: '';
+    width: 180px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: -10;
+    background: #ffffff;
+    box-shadow: 3px 2px 5px #e1e3e8;
+}
+
+#aside {
+    float: left;
+    width: 180px;
+}
+
+#aside li {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#content {
+    margin-left: 200px;
+    height: 1000px;
+    padding: 20px;
+}
+
+.lay-content {
+    margin-top: 20px;
+}
+
+.lay-code {
+    margin-top: 30px;
+}
+
+#content ul.nav {
+    position: relative;
+    height: 40px;
+}
+
+#content ul.nav li {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#content ul.nav li a[contenteditable=true] {
+    border: 1px dashed #f00;
+    padding: 9px 14px;
+    background: #ffffff;
+    color: #999;
+}
+
+#content ul.nav li i {
+    position: absolute;
+    display: block;
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#content ul.nav li .edit-btn {
+    top: -22px;
+    right: 24px;
+}
+
+#content ul.nav li .delete-min {
+    top: -22px;
+    right: 0;
+}
+
+#edit_box {
+    position: absolute;
+    right: 0;
+    width: 35%;
+    border: 1px solid #0090ff;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 0 #0090ff;
+    padding: 20px;
+    margin: 20px;
+    background: #fff;
+}
+
+#lay_box.nav input {
+    width: 100px;
+    display: block;
+    float: left;
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+#lay_footer {
+    text-align: right;
+}

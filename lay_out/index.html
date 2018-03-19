@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>可视化布局</title>
+    <link rel="shortcut icon" href="/lay_out/favicon.png" title="Favicon" />
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/tbreset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/choose.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_431340_6murjk2k9e265hfr.css">
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-primary" id="lay_edit">编辑</button>
+                <button type="button" class="btn btn-primary" id="lay_scan">预览</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-primary" id="lay_download">下载</button>
+                <button type="button" class="btn btn-primary" id="lay_save">保存</button>
+                <button type="button" class="btn btn-primary" id="lay_clear">清空</button>
+            </div>
+        </div>
+        <div id="section" class="pseudo">
+            <div id="aside">
+                <ul>
+                    <li>
+                        <button type="button" class="btn btn-primary add-element">加入导航条</button>
+                        <div class="lay-content" style="display: none;">
+                            <div class="lay-operate">
+                                <div class="btn-group">
+                                    <button class="btn btn-info btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">样式&nbsp;<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu choose-style">
+                                        <li>
+                                            <a href="#" data-style="s1">样式一</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-style="s2">样式二</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-style="s3">样式三</a>
+                                        </li>
+                                        <li role="separator" class="divider"></li>
+                                        <li>
+                                            <a href="#" data-style="s0">默认样式</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- <span class="btn btn-sm btn-info lay-edit nav-edit">编辑</span>
+                                <span class="btn btn-sm btn-success lay-save nav-save" style="display: none;">保存</span> -->
+                                <span class="btn btn-sm btn-info lay-btn">拖动</span>
+                                <span class="btn btn-sm btn-danger lay-delete">删除</span>
+                            </div>
+                            <div class="lay-code">
+                                <ul class="nav nav-pills" data-style=s0>
+                                    <li role="presentation"><a href="#">首页</a></li>
+                                    <li role="presentation"><a href="#">文件</a></li>
+                                    <li role="presentation"><a href="#">程序</a></li>
+                                    <li role="presentation"><a href="#">系统</a></li>
+                                    <li role="presentation"><a href="#">阿西吧</a></li>
+                                    <li role="presentation"><a href="#">思密达</a></li>
+                                    <li role=presentation class="li-add"><a href=# class='add-lay-ele sort-disabled'>添加</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-primary add-element">加入轮播图</button>
+                        <div class="lay-content" style="display: none;">
+                            <div class="lay-operate">
+                                <div class="btn-group">
+                                    <button class="btn btn-info btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">样式&nbsp;<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu choose-style">
+                                        <li>
+                                            <a href="#" data-style="s1">样式一</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-style="s2">样式二</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-style="s3">样式三</a>
+                                        </li>
+                                        <li role="separator" class="divider"></li>
+                                        <li>
+                                            <a href="#" data-style="s0">默认样式</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- <span class="btn btn-sm btn-info lay-edit nav-edit">编辑</span>
+                                <span class="btn btn-sm btn-success lay-save nav-save" style="display: none;">保存</span> -->
+                                <span class="btn btn-sm btn-info lay-btn">拖动</span>
+                                <span class="btn btn-sm btn-danger lay-delete">删除</span>
+                            </div>
+                            <div class="lay-code">
+                                <div data-ride="carousel" class="carousel slide">
+                                    <div class="carousel-inner">
+                                        <div class="item active">
+                                            <img src="https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=e9449e382d9759ee4a5067cd8ac0242b/94cad1c8a786c9179e80a80cc23d70cf3bc75700.jpg" alt="First slide">
+                                        </div>
+                                        <div class="item">
+                                            <img src="https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=e9449e382d9759ee4a5067cd8ac0242b/94cad1c8a786c9179e80a80cc23d70cf3bc75700.jpg" alt="First slide">
+                                        </div>
+                                        <div class="item">
+                                            <img src="https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=e9449e382d9759ee4a5067cd8ac0242b/94cad1c8a786c9179e80a80cc23d70cf3bc75700.jpg" alt="First slide">
+                                        </div>
+                                    </div>
+                                    <a class="carousel-control left" href=".carousel" data-slide="prev">&lsaquo;</a>
+                                    <a class="carousel-control right" href=".carousel" data-slide="next">&rsaquo;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-primary">加入文本域</button>
+                    </li>
+                </ul>
+            </div>
+            <div id="content">
+            </div>
+            <div id="edit_box" style="display: none;">
+                <div id="lay_box">
+                </div>
+                <div id="lay_footer">
+                    <button type="button" class="btn btn-success">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="plugins/jquery/jquery-3.1.1.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="js/index.js"></script>
+
+</html>

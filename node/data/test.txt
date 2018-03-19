@@ -1,0 +1,4 @@
+line one
+line two
+ewrqwerwe
+reqwrwe../data/test1.txt

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>test</title>
+    <link href="css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="css/layoutit.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="shortcut icon" href="img/favicon.png">
+    <script type="text/javascript" src="js/jquery-2.0.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="js/jquery.htmlClean.js"></script>
+    <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="ckeditor/config.js"></script>
+    <script type="text/javascript" src="js/jq-extend.js"></script>
+</head>
+
+<body class="edit">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" id="edit_layout"><i class="icon-edit icon-white"></i>编辑</button>
+                    <button type="button" class="btn btn-primary" id="view_layout"><i class="icon-eye-open icon-white"></i>预览</button>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" id="download_layout"><i class="icon-chevron-down icon-white"></i>下载</button>
+                    <button type="button" class="btn btn-primary" id="save_layout"><i class="icon-share icon-white"></i>保存</button>
+                    <button type="button" class="btn btn-primary" id="clean_layout"><i class="icon-trash icon-white"></i>清空</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="sidebar-nav">
+                <ul class="nav nav-list accordion-group unstyled">
+                    <li>
+                        <button type="button" data-content="content-nav" class="btn btn-primary add_widget">加入导航条</button>
+                    </li>
+                    <li>
+                        <button type="button" data-content="content-search" class="btn btn-primary add_widget">加入搜索条</button>
+                    </li>
+                    <li>
+                        <button type="button" data-content="content-carousel" class="btn btn-primary add_widget">加入轮播图</button>
+                    </li>
+                    <li>
+                        <button type="button" data-content="content-text" class="btn btn-primary add_widget">加入文本区</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="demo">
+                <div class="content-box content-nav">
+                    <div class="drag-operate">
+                        <div class="btn-group">
+                            <button class="style_btn btn btn-success btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">样式&nbsp;<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu choose-style">
+                                <li>
+                                    <a href="#" data-style="nav-s1">样式一</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-style="nav-s2">样式二</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-style="nav-s3">样式三</a>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <a href="#" data-style="nav-s0">默认样式</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <span class="btn btn-info drag-edit nav-edit">编辑</span>
+                        <span class="btn btn-primary drag-btn">拖动</span>
+                        <span class="btn btn-danger drag-delete">删除</span>
+                    </div>
+                    <div class="drag-code">
+                        <ul data-style="nav-s0" class="nav nav-pills navbar navbar-default nav-static-top style-target">
+                            <li class="active">
+                                <a href="#">首页</a>
+                            </li>
+                            <li>
+                                <a href="#">新闻</a>
+                            </li>
+                            <li>
+                                <a href="#">主要业务</a>
+                            </li>
+                            <li>
+                                <a href="#">在线教程</a>
+                            </li>
+                            <li>
+                                <a href="#">公司特色</a>
+                            </li>
+                            <li>
+                                <a href="#">联系我们</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content-box content-search">
+                    <div class="drag-operate">
+                        <div class="btn-group">
+                            <button class="style_btn btn btn-success btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">样式&nbsp;<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu choose-style">
+                                <li>
+                                    <a href="#" data-style="search-s1">样式一</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-style="search-s2">样式二</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-style="search-s3">样式三</a>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <a href="#" data-style="search-s0">默认样式</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- <span class="btn btn-info drag-edit">编辑</span> -->
+                        <span class="btn btn-primary drag-btn">拖动</span>
+                        <span class="btn btn-danger drag-delete">删除</span>
+                    </div>
+                    <div class="drag-code">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <div data-style="search-s0" class="input-group style-target search-box">
+                                    <div class="search-site">
+                                        <span>天猫</span><span>淘宝</span><span>京东</span><span>苏宁</span><span>国美</span>
+                                    </div>
+                                    <input type="text" class="search-tab" placeholder="请输入关键字">
+                                    <div class="search-btn">搜索</div>
+                                    <div class="hot-search">
+                                        <span>天猫</span><span>淘宝</span><span>宝贝</span><span>宝贝</span><span>天猫</span><span>淘宝</span><span>宝贝</span><span>宝贝</span><span>衣服</span><span>鞋子</span><span>手机</span><span>电脑</span><span>家电</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="content-box content-carousel">
+                    <div class="drag-operate">
+                        <!-- <span class="btn btn-info drag-edit">编辑</span> -->
+                        <span class="btn btn-primary drag-btn">拖动</span>
+                        <span class="btn btn-danger drag-delete">删除</span>
+                    </div>
+                    <div class="drag-code">
+                        <div id="carousel_box" class="carousel slide" data-ride="carousel">
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <img src="http://pic.90sjimg.com/back_pic/qk/back_origin_pic/00/04/13/e80643a38640c7abbde0b911ab1898fd.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        我们是神的子民，谁敢违抗我们。沐浴在万丈光芒下，满怀希望，有着钢铁般的决心，迈着坚定的步伐，从今天起，书写属于我们自己的命运。
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="http://pic.90sjimg.com/back_pic/qk/back_origin_pic/00/04/13/e80643a38640c7abbde0b911ab1898fd.jpg" alt="">
+                                    <div class="carousel-caption">
+                                        我的生涯一片无悔。我想起那天夕阳下的奔跑，那是我逝去的青春……
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="http://pic.90sjimg.com/back_pic/qk/back_origin_pic/00/04/13/e80643a38640c7abbde0b911ab1898fd.jpg" alt="">
+                                    <div class="carousel-caption">
+                                        青春的土壤中，只有记忆是潮湿的。我们不是植物，不能在这块土地上生生不息。当我们回眸青春，仿佛有一种说不出的痛。很多人问我，青春的诀别是否意味着年迈的将近，其实，青春，它一直都在继续……
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="http://pic.90sjimg.com/back_pic/qk/back_origin_pic/00/04/13/e80643a38640c7abbde0b911ab1898fd.jpg" alt="">
+                                    <div class="carousel-caption">
+                                        阿西吧源自韩语（朝鲜语）“阿西”！感叹词！它的实际意思类似于"oh,my god",“我去”等意思，是表示对某一事件或者某一事物感到惊奇、震惊、愤怒等等时而说出的话语，属于发泄情感的词语。
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="#carousel_box" role="button" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                    <span class="sr-only">&lt;</span>
+                                </a>
+                            <a class="right carousel-control" href="#carousel_box" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                    <span class="sr-only">&gt;</span>
+                                </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-box content-text">
+                    <div class="drag-operate">
+                        <span class="btn btn-info drag-edit text-edit">编辑</span>
+                        <span class="btn btn-primary drag-btn">拖动</span>
+                        <span class="btn btn-danger drag-delete">删除</span>
+                    </div>
+                    <div class="drag-code">
+                        <div class="text-box">
+                            <p>CoffeeScript 是一门编译到 JavaScript 的小巧语言. 在 Java 般笨拙的外表下, JavaScript 其实有着一颗华丽的心脏. CoffeeScript 尝试用简洁的方式展示 JavaScript 优秀的部分.</p>
+                            <p>CoffeeScript 的指导原则是: "她仅仅是 JavaScript". 代码一一对应地编译到 JS, 不会在编译过程中进行解释. 已有的 JavaScript 类库可以无缝地和 CoffeeScript 搭配使用, 反之亦然. 编译后的代码是可读的, 且经过美化, 能在所有 JavaScript 环境中运行, 并且应该和对应手写的 JavaScript 一样快或者更快.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- extend -->
+            </div>
+        </div>
+    </div>
+    <div class="modal fade hide" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">提示</h4>
+                </div>
+                <div class="modal-body">
+                    <textarea id="text_code"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="save_code">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

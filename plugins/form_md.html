@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>表单验证控件</title>
+		<style>
+			table {
+				width: 1200px;
+				font-family: verdana, arial, sans-serif;
+				font-size: 11px;
+				color: #333333;
+				border-width: 1px;
+				border-color: #999999;
+				border-collapse: collapse;
+			}
+			
+			table th {
+				background-color: #c3dde0;
+				border-width: 1px;
+				padding: 8px;
+				border-style: solid;
+				border-color: #a9c6c9;
+			}
+			
+			table tr {
+				background-color: #d4e3e5;
+			}
+			
+			table td {
+				border-width: 1px;
+				padding: 8px;
+				border-style: solid;
+				border-color: #a9c6c9;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<h1>jQuery.form.js使用</h1>
+		<p>jQuery.form.js是一个form插件，支持ajax表单提交和ajax文件上传。</p>
+		<h3>API</h3>
+		<table id="tab_api">
+			<thead>
+				<tr>
+					<th>函数</th>
+					<th>描述</th>
+					<th>参数</th>
+					<th>调用</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>ajaxForm</td>
+					<td>增加所有需要的事件监听器，为ajax提交表单做准备。ajaxForm并不能提交表单。在document的ready函数中，使用ajaxForm来为ajax提交表单进行准备。</td>
+					<td>接受0个或1个参数。参数可以是一个回调函数，也可以是一个Options对象。</td>
+					<td>$("#formid").ajaxForm();</td>
+				</tr>
+				<tr>
+					<td>ajaxSubmit</td>
+					<td>使用ajax提交表单。</td>
+					<td>接受0个或1个参数。参数可以是一个回调函数，也可以是一个Options对象。</td>
+					<td>
+						<p>$("#formid").ajaxSubmit();</p>
+						<p>或</p>
+						<p>$("#formid").submit(function(){</p>
+						<p>&nbsp; &nbsp; $(this).ajaxSubmit();</p>
+						<p>&nbsp; &nbsp; return false;</p>
+						<p>});</p>
+					</td>
+				</tr>
+				<tr>
+					<td>formSerialize</td>
+					<td>将表单串行化（或序列化）为一个查询字符串。这个方法将返回以下格式的字符串：name1=value1&amp;name2=value2。</td>
+					<td>无</td>
+					<td>$("#formid").formSerialize();</td>
+				</tr>
+				<tr>
+					<td>fieldSerialize</td>
+					<td>将表单的字段元素串行化（或序列化）为一个查询字符串。当只有部分表单字段需要进行串行化（或序列化）时，使用这个就很方便了。返回以下格式的字符串：name=value1&amp;name2=value2。</td>
+					<td>无</td>
+					<td>$("#formid .specialFields").fieldSerialize();</td>
+				</tr>
+				<tr>
+					<td>fieldValue</td>
+					<td>返回匹配插入数组中的表单元素值。该方法以数组的形式返回数据。如果元素值被判定可能无效，则数组为空。</td>
+					<td>无</td>
+					<td>$("#formid :password").fieldValue();</td>
+				</tr>
+				<tr>
+					<td>resetForm</td>
+					<td>将表单恢复到初始状态。</td>
+					<td>无</td>
+					<td>$("#formid").resetForm();</td>
+				</tr>
+				<tr>
+					<td>clearForm</td>
+					<td>清除表单元素。该方法将所有的text、password、textarea置空，清除select元素中的选定，以及所有radio按钮和checkbox按钮重置为非选定状态。</td>
+					<td>无</td>
+					<td>$("#formid").clearForm();</td>
+				</tr>
+				<tr>
+					<td>clearFields</td>
+					<td>清除字段元素。只有部分表单元素需要清除时方便使用。</td>
+					<td>无</td>
+					<td>$("#formid .specialFields").clearFields();</td>
+				</tr>
+			</tbody>
+		</table>
+		<h3>Options对象</h3>
+		<table id="tab_option">
+			<thead>
+				<tr>
+					<th>属性</th>
+					<th>描述</th>
+					<th>值</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>target</td>
+					<td>指明页面中由服务器响应进行更新的元素。元素的值可能被指定为一个jQuery选择器字符串、一个jquery对象、一个DOM元素。</td>
+					<td>默认值：null</td>
+				</tr>
+				<tr>
+					<td>url</td>
+					<td>指定提交表单数据的URL。</td>
+					<td>默认值：表单的action属性值</td>
+				</tr>
+				<tr>
+					<td>type</td>
+					<td>指定提交表单数据的方法（method）：“GET”或“POST”。</td>
+					<td>默认值：GET</td>
+				</tr>
+				<tr>
+					<td>beforeSubmit</td>
+					<td>表单提交前被调用的回调函数。如果回调函数返回false表单将不被提交。回调函数带三个调用参数：数组形式的表单数据，jQuery表单对象，以及传入ajaxForm/ajaxSubmit中的Options对象。</td>
+					<td>默认值：null</td>
+				</tr>
+				<tr>
+					<td>success</td>
+					<td>表单成功提交后调用的回调函数。然后dataType选项值决定传回responseText还是responseXML的值。</td>
+					<td>默认值：null</td>
+				</tr>
+				<tr>
+					<td>dataType</td>
+					<td>返回的数据类型：null、"xml"、"script"、"json"其中之一。</td>
+					<td>默认值：null</td>
+				</tr>
+				<tr>
+					<td>resetForm</td>
+					<td>表示如果表单提交成功是否进行重置。</td>
+					<td>默认值：null</td>
+				</tr>
+				<tr>
+					<td>clearForm</td>
+					<td>表示如果表单提交成功是否清除表单数据。</td>
+					<td>默认值：null</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+
+</html>
+<script type="text/javascript" src="jquery/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="jquery-form/jquery.form.js"></script>
+<script type="text/javascript">
+	//	var options = {
+	//		target: '#output', // 把服务器返回的内容放入id为output的元素中
+	//		beforeSubmit: showRequest, // 提交前的回调函数
+	//		success: showResponse, // 提交后的回调函数
+	//		url: url, //默认是form的action，如果申明，则会覆盖
+	//		type: type, // 默认值是form的method("GET" or "POST")，如果声明，则会覆盖
+	//		dataType: null, // html（默认）、xml、script、json接受服务器端返回的类型
+	//		clearForm: true, // 成功提交后，清除所有表单元素的值
+	//		resetForm: true, // 成功提交后，重置所有表单元素的值
+	//		timeout: 3000 // 限制请求的时间，当请求大于3秒后，跳出请求
+	//	}
+	//
+	//	function showRequest(formData, jqForm, options) {
+	//		formData: formData; // 数组对象， 提交表单时， form插件会以ajax方式自动提交这些数据， 格式如[{name: user,value: val}, {name: pwd,value: pwd}]
+	//		jqForm: jqForm; // jQuery对象， 封装了表单的元素
+	//		options: options; // options对象
+	//		var queryString = $.param(formData); // name=1&address=2
+	//		var formElement = jqForm[0]; // 将jqForm转换为DOM对象
+	//		var address = formElement.address.value; // 访问jqForm的DOM元素
+	//		return true; // 只要不返回false，表单都会提交，在这里可以对表单元素进行验证
+	//	}
+	//
+	//	function showResponse(responseText, statusText) {
+	//		dataType = xml
+	//		var name = $("name", responseXML).text();
+	//		var address = $("address", responseXML).text();
+	//		$("#xmlout").html(name + " " + address);
+	//		dataType = json
+	//		$("#jsonout").html(data.name + " " + data.address);
+	//	}
+</script>

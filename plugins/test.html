@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>test页面</title>
+</head>
+
+<body>
+</body>
+<script type="text/javascript" src="jquery/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+var init = function() {
+    console.log(1321321);
+}
+$.extend({
+    init: init
+});
+$.fn.extend({          
+     coo:function() {            
+           console.log('werqwerqwerwqe')          
+      }       
+});
+</script>
+<script type="text/javascript">
+    $.init();
+    $('body').coo();
+</script>
+
+</html>

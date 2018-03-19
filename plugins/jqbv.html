@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>jqBootstrapValidation</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+    <form class="form-horizontal">
+        <input type="email" id="email" required>
+        <input name="emailAgain" data-validation-matches-match="email" data-validation-matches-message="Must match email address entered above">
+        <input type="checkbox" name="terms-and-conditions" required data-validation-required-message="You must agree to the terms and conditions">
+        <input type="checkbox" name="qualityControl[]" value="fast" minchecked="2" data-validation-minchecked-message="Choose two" maxchecked="2" data-validation-maxchecked-message="You can't have it all ways">
+    </form>
+</body>
+<script type="text/javascript" src="jquery/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="jqBootstrapValidation/jqBootstrapValidation-1.3.7.min.js"></script>
+<script>
+$(function() { $("input,select,textarea").not("[type=submit]").jqBootstrapValidation(); });
+</script>
+
+</html>

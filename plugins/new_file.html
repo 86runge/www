@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title></title>
+		<script type="text/javascript" src="jquery.metadata.2.0/jquery.metadata.2.0/test/jquery.js"></script>
+		<!-- 这里既引用了1.0又引用了2.0，就是为了说明它们之间没有冲突，我的理解是以前的优秀插件里面使用了1.0，但是1.0的问题确实有，所以2.0把meta改成metadata 这样就不会相互冲突了-->
+		<script type="text/javascript" src="jquery.metadata.2.0/jquery.metadata.2.0/jquery.metadata.js"></script>
+		<script type="text/javascript" src="jquery.metadata.1.0/jquery.metadata.1.0/jquery.metadata.js"></script>
+		<script language="javascript">
+			$(document).ready(function() {
+				alert($(".media").metadata().src);
+				alert($('li.someclass').metadata().some);
+			});
+		</script>
+	</head>
+
+	<body>
+
+		<OBJECT class="media {src:'/tems/upload/192168.mp3'}" data="[object Object]"></OBJECT>
+		<li class="someclass {some: 'data'} anotherclass">...</li>
+		OR
+		<li data="{some:'random', json: 'data'}">...</li>
+		OR
+		<li>
+			<script type="data">{some:"json",data:true}</script> ...</li>
+		<script language="javascript">
+			var data = $('li.someclass').metadata();
+			if(data.some && data.some == 'data')
+				alert('It Worked!');
+		</script>
+	</body>
+
+</html>
